@@ -8,10 +8,12 @@ export default {
   },
   setObject (key, value) {
     window.sessionStorage[key] = JSON.stringify(value)
-    return this.getObject(key)
   },
   getObject (key) {
     return JSON.parse(window.sessionStorage[key] || null)
+  },
+  getAllObject () {
+    return window.sessionStorage
   },
   remove (key) {
     window.sessionStorage.removeItem(key)

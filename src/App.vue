@@ -24,6 +24,9 @@
 </script>
 
 <style>
+  body {
+    color: #666;
+  }
   .bottom-bar-fixed {
     position: fixed;
     bottom: 0;
@@ -31,5 +34,17 @@
   }
   .content {
     padding: 10px;
+  }
+  .loading {
+    text-align: center;
+    padding: 60px 0;
+  }
+  .md-block {
+    width: 100%;
+    display: block;
+    margin: 0;
+  }
+  .text-center {
+    text-align: center;
   }
 </style>
