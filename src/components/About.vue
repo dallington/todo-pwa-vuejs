@@ -5,7 +5,9 @@
       <h2 class="md-title" style="flex: 1">About</h2>
     </md-toolbar>
 
-    ajdfkljadslkfjlkasdjflkjsd
+    <div class="content">
+      <p>This project example PWA with VueJS is Open Source, get project in <a href="http://github.com/odirleiborgert/todo-pwa-vuejs" target="_blank">github.com/odirleiborgert/todo-pwa-vuejs</a></p>
+    </div>
 
   </div>
 </template>

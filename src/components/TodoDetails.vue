@@ -1,8 +1,8 @@
 <template>
-  <div class="TodoAdd">
+  <div class="TodoDetails">
 
     <md-toolbar class="md-dense">
-      <h2 class="md-title" style="flex: 1">Todo Add</h2>
+      <h2 class="md-title" style="flex: 1">Todo Details</h2>
     </md-toolbar>
 
     <div class="content">
