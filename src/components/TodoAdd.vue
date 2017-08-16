@@ -25,8 +25,7 @@
 </template>
 
 <script>
-  import store from '@/store'
-  import session from '@/services/session'
+  import storage from '@/services/storage'
 
   export default {
     name: 'TodoAdd',
@@ -43,10 +42,7 @@
     methods: {
       addItem (item) {
         this.loading = true
-        this.array = store.state.list
-        this.array.push(item)
-        store.state.list = this.array
-        session.setObject(this.guid(), item)
+        storage.setObject(this.guid(), item)
         setTimeout(() => {
           this.$router.push({name: 'TodoList'})
         }, 400)

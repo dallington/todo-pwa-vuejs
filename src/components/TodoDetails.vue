@@ -6,22 +6,20 @@
     </md-toolbar>
 
     <div class="content">
-      <md-input-container>
-        <label>Title</label>
-        <md-input v-model="item.title"></md-input>
-      </md-input-container>
-      <md-input-container>
-        <label>Description</label>
-        <md-textarea v-model="item.description"></md-textarea>
-      </md-input-container>
+
+      <strong>{{ item.title }}</strong>
+      <p>{{ item.description }}</p>
+
+      <br>
+
+      <md-button class="md-raised md-accent md-block" v-on:click="removeItem()">Remove Item</md-button>
     </div>
-    <md-button class="md-raised md-primary" v-on:click="addItem(item)">Add Todo</md-button>
 
   </div>
 </template>
 
 <script>
-  import store from '@/store'
+  import storage from '@/services/storage'
 
   export default {
     name: 'TodoAdd',
@@ -35,14 +33,13 @@
         }
       }
     },
+    created () {
+      this.item = storage.getObject(this.$route.params.id)
+    },
     methods: {
-      addItem (item) {
-        this.loading = true
-        this.array = store.state.list
-        this.array.push(item)
-        store.state.list = this.array
-        // loading
-        // redirect home
+      removeItem () {
+        storage.remove(this.$route.params.id)
+        this.$router.push({name: 'TodoList'})
       }
     }
   }

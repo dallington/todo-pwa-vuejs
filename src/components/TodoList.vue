@@ -6,12 +6,14 @@
     </md-toolbar>
 
     <md-list class="md-double-line md-list-text-container md-dense">
-      <md-list-item href="#/about" v-for="item in list">
-        <md-icon>check_circle</md-icon>
-        <div class="md-list-text-container">
-          <span>{{ item }}</span>
-          <p>{{ item }}</p>
-        </div>
+      <md-list-item v-for="item in list">
+        <router-link :to="{ name: 'TodoDetails',params: { id: item.id } }">
+          <md-icon>check_circle</md-icon>
+          <div class="md-list-text-container">
+            <span>{{ item.title }}</span>
+            <p>{{ item.description }}</p>
+          </div>
+        </router-link>
       </md-list-item>
     </md-list>
 
@@ -19,8 +21,7 @@
 </template>
 
 <script>
-//  import store from '@/store'
-  import session from '@/services/session'
+  import storage from '@/services/storage'
 
   export default {
     name: 'TodoList',
@@ -30,9 +31,7 @@
       }
     },
     created () {
-//      console.log(session.getObject('d87694b4-f4f2-fee0-07cf-0a46f55f9ace'))
-      console.log(session.getAllObject())
-      this.list = session.getAllObject()
+      this.list = storage.getAllObject()
     }
   }
 </script>
